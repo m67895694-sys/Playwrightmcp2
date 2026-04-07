@@ -97,8 +97,7 @@ test.describe('AC1: Cart Review - View cart items with details and totals', () =
     
     // Each item displays price
     const prices = await page.locator('[data-test="inventory-item-price"]');
-    const priceCount = await prices.count();
-    expect(priceCount).toBeGreaterThanOrEqual(2);
+    await expect(prices).toHaveCount(2);
     
     // Step 4: Verify totals by proceeding to checkout overview
     await page.click('[data-test="checkout"]');
